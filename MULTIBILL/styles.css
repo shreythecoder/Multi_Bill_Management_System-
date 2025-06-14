@@ -1,0 +1,204 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+nav button {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 25px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button.active {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+nav button:hover {
+    transform: translateY(-3px);
+}
+
+/* Sections */
+.section {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+/* Forms */
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* Buttons */
+button[type="submit"], .report-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button[type="submit"]:hover, .report-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Bill & House Items */
+.item {
+    background: #f9f9f9;
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 5px solid #007bff;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.item.paid {
+    border-left-color: #28a745;
+}
+
+.item.overdue {
+    border-left-color: #dc3545;
+}
+
+.item:hover {
+    transform: translateX(5px);
+}
+
+/* Buttons inside items */
+.delete-btn, .pay-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.pay-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+/* Status Indicator */
+.status-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.status-indicator.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.status-indicator.error {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+/* No Data */
+.no-data {
+    text-align: center;
+    color: #777;
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}

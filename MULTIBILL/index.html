@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Bill Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Multi Bill Management System</h1>
+            <p>Manage your houses and bills with ease</p>
+        </header>
+
+        <nav>
+            <button id="housesBtn" class="active" onclick="UI.showSection('houses')">🏠 Manage Houses</button>
+            <button id="billsBtn" onclick="UI.showSection('bills')">💰 Manage Bills</button>
+            <button id="reportsBtn" onclick="UI.showSection('reports')">📊 View Reports</button>
+        </nav>
+
+        <!-- House Section -->
+        <section id="houses" class="section active">
+            <h2>House Management</h2>
+            <form id="houseForm">
+                <input type="text" id="ownerName" placeholder="Owner Name" required />
+                <input type="text" id="area" placeholder="Area" />
+                <input type="text" id="street" placeholder="Street" />
+                <input type="text" id="city" placeholder="City" />
+                <input type="text" id="state" placeholder="State" />
+                <input type="text" id="pincode" placeholder="Pincode" />
+                <input type="email" id="email" placeholder="Email" />
+                <input type="tel" id="phone" placeholder="Phone Number" />
+                <button type="submit">Add House</button>
+            </form>
+            <div id="housesList"></div>
+        </section>
+
+        <!-- Bill Section -->
+        <section id="bills" class="section">
+            <h2>Bill Management</h2>
+            <form id="billForm">
+                <select id="houseSelect" required></select>
+                <select id="billType" required>
+                    <option value="">Select Bill Type</option>
+                </select>
+                <input type="number" id="units" placeholder="Units" step="0.01" required />
+                <input type="number" id="amount" placeholder="Amount (₹)" step="0.01" required />
+                <input type="date" id="dueDate" required />
+                <select id="billStatus">
+                    <option value="unpaid">Unpaid</option>
+                    <option value="paid">Paid</option>
+                </select>
+                <input type="text" id="remarks" placeholder="Remarks" />
+                <button type="submit">Add Bill</button>
+            </form>
+            <div id="billsList"></div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+            <h2>Reports & Analytics</h2>
+            <button class="report-btn" onclick="Reports.loadOverdueBills()">📋 Load Overdue Bills</button>
+            <button class="report-btn" onclick="Reports.loadAllBills()">📊 Load All Bills</button>
+            <div id="reportsList"></div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="utils.js"></script>
+    <script src="storage.js"></script>
+    <script src="bills.js"></script>
+    <script src="ui.js"></script>
+    <script src="reports.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            UI.init();
+        });
+    </script>
+</body>
+</html>
